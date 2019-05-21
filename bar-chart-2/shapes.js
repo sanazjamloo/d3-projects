@@ -15,9 +15,12 @@ svg.selectAll("rect")
                  });
 
 //Adding a circle
+
+var newX = 300;
 svg.selectAll("circle")
       .data(dataArray)
       .enter().append("circle")
-                .attr("cx",function(d,i){ return 300+(i*20) ; })
+                .attr("cx",function(d,i){ newX+=(d*6)+(i*20); return newX; })
                 .attr("cy","100")
-                .attr("r","5");
+                .attr("r",function(d){ return d*3;
+                 });
