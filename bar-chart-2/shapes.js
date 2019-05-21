@@ -38,7 +38,6 @@ svg.selectAll("ellipse")
                 .attr("rx",function(d){ return d*3; })
                 .attr("ry" , "30");
 
-
 //Adding Lines
 var newX = 900;
 svg.selectAll("line")
@@ -49,8 +48,6 @@ svg.selectAll("line")
                 .attr("x2", function(d){return newX+(d*15); })
                 .attr("y2", function(d,i){return 80+(i*20); })
 
-
-
 //Adding text
 svg.append("text")
         .attr("x", newX)
@@ -58,6 +55,7 @@ svg.append("text")
         .attr("fill","none")
         .attr("stroke","blue")
         .attr("stroke-width", "2")
+        .attr("dominant-baseline", "middle")
         .attr("font-size", "30")
         .attr("text-anchor", "start")
         .text("Start");
@@ -67,6 +65,7 @@ svg.append("text")
         .attr("fill", "blue")
         .attr("stroke", "none")
         .attr("font-size", "30")
+        .attr("dominant-baseline", "middle")
         .attr("text-anchor", "middle")
         .text("Middle");
 svg.append("text")
@@ -75,5 +74,12 @@ svg.append("text")
         .attr("stroke", "blue")
         .attr("fill", "none")
         .attr("font-size", "30")
+        .attr("dominant-baseline", "middle")
         .attr("text-anchor", "end")
         .text("End");
+
+svg.append("line")
+        .attr("x1",newX)
+        .attr("y1","150")
+        .attr("x2",newX)
+        .attr("y2","210")
