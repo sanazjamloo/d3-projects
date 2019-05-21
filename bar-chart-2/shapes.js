@@ -37,3 +37,15 @@ svg.selectAll("ellipse")
                 .attr("cy","100")
                 .attr("rx",function(d){ return d*3; })
                 .attr("ry" , "30");
+
+
+//Adding Lines
+var newX = 600;
+svg.selectAll("ellipse")
+      .data(dataArray)
+      .enter().append("ellipse")
+                .attr("class","second")
+                .attr("cx",function(d,i){ newX+=(d*6)+(i*20); return newX;})
+                .attr("cy","100")
+                .attr("rx",function(d){ return d*3; })
+                .attr("ry" , "30");
