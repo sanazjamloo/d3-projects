@@ -40,12 +40,11 @@ svg.selectAll("ellipse")
 
 
 //Adding Lines
-var newX = 600;
-svg.selectAll("ellipse")
+var newX = 900;
+svg.selectAll("line")
       .data(dataArray)
-      .enter().append("ellipse")
-                .attr("class","second")
-                .attr("cx",function(d,i){ newX+=(d*6)+(i*20); return newX;})
-                .attr("cy","100")
-                .attr("rx",function(d){ return d*3; })
-                .attr("ry" , "30");
+      .enter().append("line")
+                .attr("x1",newX)
+                .attr("y1", function(d,i){return 80+(i*20); })
+                .attr("x2", function(d){return newX+(d*15); })
+                .attr("y2", function(d,i){return 80+(i*20); })
