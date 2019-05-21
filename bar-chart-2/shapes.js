@@ -48,3 +48,22 @@ svg.selectAll("line")
                 .attr("y1", function(d,i){return 80+(i*20); })
                 .attr("x2", function(d){return newX+(d*15); })
                 .attr("y2", function(d,i){return 80+(i*20); })
+
+
+
+//Adding text
+svg.append("text")
+        .attr("x", newX)
+        .attr("y", 150)
+        .attr("font-size", "30")
+        .text("Hello World!");
+svg.append("text")
+        .attr("x", newX)
+        .attr("y", 150)
+        .attr("font-size", "30")
+        .text("Hello World!");
+svg.append("text")
+        .attr("x", newX)
+        .attr("y", 150)
+        .attr("font-size", "30")
+        .text("Hello World!");
