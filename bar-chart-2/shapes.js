@@ -44,39 +44,26 @@ svg.selectAll("line")
       .data(dataArray)
       .enter().append("line")
                 .attr("x1",newX)
-                .attr("y1", function(d,i){return 80+(i*20); })
-                .attr("x2", function(d){return newX+(d*15); })
-                .attr("y2", function(d,i){return 80+(i*20); })
+                .attr("y1", function(d,i){ return 80 + (i*20); })
+                .attr("x2", function(d){ return newX + (d*15); })
+                .attr("y2", function(d,i){ return 80 + (i*20); })
 
-//Adding text
-svg.append("text")
+//Adding text with tspan (data driven)
+
+var textArray = ['Start', 'Middle', 'end'];
+svg.append("text").selectAll("tspan")
+    .data(textArray)
+    .enter().append("tspan")
         .attr("x", newX)
-        .attr("y", 150)
+        .attr("y", function(d,i){ return 150 + (i*30);})
         .attr("fill","none")
         .attr("stroke","blue")
         .attr("stroke-width", "2")
         .attr("dominant-baseline", "middle")
         .attr("font-size", "30")
         .attr("text-anchor", "start")
-        .text("Start");
-svg.append("text")
-        .attr("x", newX)
-        .attr("y", 180)
-        .attr("fill", "blue")
-        .attr("stroke", "none")
-        .attr("font-size", "30")
-        .attr("dominant-baseline", "middle")
-        .attr("text-anchor", "middle")
-        .text("Middle");
-svg.append("text")
-        .attr("x", newX)
-        .attr("y", 210)
-        .attr("stroke", "blue")
-        .attr("fill", "none")
-        .attr("font-size", "30")
-        .attr("dominant-baseline", "middle")
-        .attr("text-anchor", "end")
-        .text("End");
+        .text(function(d){ return d; });
+
 
 svg.append("line")
         .attr("x1",newX)
