@@ -55,15 +55,25 @@ svg.selectAll("line")
 svg.append("text")
         .attr("x", newX)
         .attr("y", 150)
+        .attr("fill","none")
+        .attr("stroke","blue")
+        .attr("stroke-width", "2")
         .attr("font-size", "30")
-        .text("Hello World!");
+        .attr("text-anchor", "start")
+        .text("Start");
 svg.append("text")
         .attr("x", newX)
-        .attr("y", 150)
+        .attr("y", 180)
+        .attr("fill", "blue")
+        .attr("stroke", "none")
         .attr("font-size", "30")
-        .text("Hello World!");
+        .attr("text-anchor", "middle")
+        .text("Middle");
 svg.append("text")
         .attr("x", newX)
-        .attr("y", 150)
+        .attr("y", 210)
+        .attr("stroke", "blue")
+        .attr("fill", "none")
         .attr("font-size", "30")
-        .text("Hello World!");
+        .attr("text-anchor", "end")
+        .text("End");
