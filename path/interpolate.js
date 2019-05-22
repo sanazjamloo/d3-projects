@@ -14,3 +14,11 @@ svg.append("path")
       .attr("fill", "none")
       .attr("stroke", "blue")
       .attr("d", line(dataArray));
+
+//Adding dots
+svg.selectAll("circle")
+   .data(dataArray)
+   .enter().append("circle")
+              .attr("cx", function(d,i){ return d.x*6; })
+              .attr("cy", function(d,i){ return d.y*4; })
+              .attr("r","2");
