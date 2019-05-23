@@ -1,6 +1,9 @@
 var dataArray = [25,26,28,32,37,45,55,70,90,120,135,150,160,168,172,177,180];
 var dataYears = ['2000','2001','2002','2003','2004','2005','2006','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016'];
 
+
+var parseDate = d3.timeParse("%Y");
+//console.log(d3.extent(dataYears, function(d){ return parseDate(d); }));
 var height = 200;
 var width = 500;
 
@@ -8,12 +11,16 @@ var width = 500;
 var margin = {left:50, right:50, top:40, bottom:0};
 //Adding scale
 var y = d3.scaleLinear()
-            .domain([0,180])
+            .domain([0, d3.max(dataArray)])
 //The values in the range are inverted because this is for our Y axis.
             .range([height,0]);
 
-//Declaring axis generator
-var yAxis = d3.axisLeft(y).ticks(4);
+var x = d3.scaleTime()
+            .domain(d3.max(dataYears, function(d){ return parseDate(d); }))
+            .range([0, width]);
+
+//Declaring axis generator for y axis
+var yAxis = d3.axisLeft(y).ticks(4).tickPadding(10).tickSize(10);
 
 console.log(y(0));
 console.log(y(90));
