@@ -13,7 +13,7 @@ var y = d3.scaleLinear()
             .range([height,0]);
 
 //Declaring axis generator
-var yAxis = d3.axisLeft(y);
+var yAxis = d3.axisLeft(y).ticks(4);
 
 console.log(y(0));
 console.log(y(90));

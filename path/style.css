@@ -12,3 +12,13 @@ g.group circle {
   stroke: red;
   fill: none;
 }
+
+g.tick line {
+  stroke: blue;
+}
+
+g.tick text {
+  font-size: 12px;
+  fill: purple;
+
+}
