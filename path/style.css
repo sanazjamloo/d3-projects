@@ -13,6 +13,12 @@ g.group circle {
   fill: none;
 }
 
+g.hidden line,
+g.hidden path {
+  display: none;
+}
+
+
 g.tick line {
   stroke: blue;
 }
