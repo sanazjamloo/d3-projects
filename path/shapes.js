@@ -12,6 +12,8 @@ var xAxis = d3.axisBottom(x);
 
 var svg = d3.select("body").append("svg").attr("height","100%").attr("width","100%");
 
+var cat20 = d3.schemeCategory20;
+
 svg.selectAll("rect")
       .data(dataArray)
       .enter().append("rect")
@@ -40,6 +42,7 @@ svg.selectAll("ellipse")
       .data(dataArray)
       .enter().append("ellipse")
                 .attr("class","second")
+                .attr("fill", function (d,i) { return cat20[i]; })
                 .attr("cx",function(d,i){ newX+=(d*3)+(i*20); return newX; })
                 .attr("cy","100")
                 .attr("rx",function(d){ return d*3; })
