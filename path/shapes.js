@@ -1,6 +1,9 @@
 var dataArray = [5,11,18];
 var dataDays = ['Mon', 'Wed', 'Fri'];
 
+//Adding color sclaes
+var rainbow = d3.scaleSequential(d3.interpolateRainbow).domain([0,10]);
+
 var x = d3.scaleOrdinal()
               .domain(dataDays)
               .range([25,85,145]);
@@ -14,7 +17,7 @@ svg.selectAll("rect")
       .enter().append("rect")
                 .attr("height",function(d,i){ return d*15; })
                 .attr("width","50")
-                .attr("fill","pink")
+                .attr("fill",function (d,i){ return rainbow(i); })
                 .attr("x",function(d,i){ return 60*i; })
                 .attr("y",function(d,i){ return 300-(d*15); });
 
