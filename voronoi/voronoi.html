@@ -5,6 +5,15 @@
 		<title>D3.js Essential Training for Data Scientists</title>
 		<link rel="stylesheet" type="text/css" href="style.css" >
 		<script type="text/javascript" src="d3.v4.js"></script>
+    <style>
+    g.polygons path {
+      fill: white;
+      stroke: lightsteelblue;
+    }
+    g.fuel circle {
+      fill:lightsteelblue;
+    }
+    </style>
 	</head>
 
 	<body>
@@ -19,6 +28,14 @@
         var voronoi = d3.voronoi().size([width, height]);
         var svg = d3.select("body").append("svg").attr("width", "100%").attr("height", "100%");
         console.log(vertices);
+        //creating polygons
+        svg.append("g").attr("class", "polygons")
+          .selectAll("path")
+          .data(voronoi.polygons(vertices))
+          .enter().append("path")
+                    .attr("d", function (d) { return "M"+d.join("L")+"Z"; });
+
+
         svg.append("g").attr("class", "fuel")
         .selectAll("circle")
             .data(vertices)
@@ -27,12 +44,7 @@
                         .attr("cy", function(d) { return d[1]})
                         .attr("r", "2.5");
 
-        //creating polygons
-        svg.append("g").attr("class", "polygons")
-          .selectAll("path")
-          .data(voronoi.polygons(vertices))
-          .enter().append("path")
-                    .attr("d", "")
+
 
     </script>
   </body>
