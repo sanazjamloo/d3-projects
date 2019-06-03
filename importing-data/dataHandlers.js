@@ -37,10 +37,26 @@ console.log(letterNodes);
 
 });
 
+// we don't use row after .get because text file does not interpret text files as having rows.
+d3.text("test.txt").get(function(error, data){
 
+var myTabPositions = [];
+var myNewLinePoritions = [];
 
+var tabVal = '\\b\t\\b';
+var tabMod = 'g';
+var tabregExp = new RegExp(tabVal,tabMod);
 
+var lineVal = '\\b\n\\b';
+var lineMod = 'g';
+var lineRegExp = new RegExp(lineVal, lineMod);
 
+data.replace(tabRegExp, function(a,b) { myTabPositions.push(b); return a; });
+data.replace(lineRegExp, function(a,b) { myNewLinePositions.push(b); return a; });
+console.log(myTabPositions);
+console.log(myNewLinePositions);
+
+})
 
 
 d3.json("treeData.json").get(function(error,data){
