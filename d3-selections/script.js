@@ -1,1 +1,1 @@
-d3.select(".temp").text("hot");
+d3.selectAll(".temp").text("hot");
