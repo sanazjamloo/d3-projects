@@ -35,7 +35,12 @@ d3.xml("data2.xml").get(function(error, xml){
   var chartGroup = svg.append("g").attr("transofrm", "translate("+margin.left+", "+margin.top+")");
 
   var stacked = stack(xml);
-  console.log(stacked);
+  //console.log(stacked);
+
+// x scale
+  chartGroup.append("g").attr("class" , "x axis")
+            .attr("transform", "translate(0, "+height+")")
+            .call(d3.axisBottom(x));
 
 
 
