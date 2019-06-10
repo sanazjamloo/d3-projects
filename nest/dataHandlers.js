@@ -3,8 +3,15 @@ var parseDate = d3.timeParse("%m/%d/%Y");
 d3.csv("prices.csv")
     .row(function(d){ return {month: parseDate(d.month), price:Number(d.price.trim().slice(1))}; })
     .get(function(error,data){
+/* Nest is often used like this to aggregate data into time periods.
+Nest is really useful for creating hierarchical layouts from flat data.
+But it's equally at home organizing your data for a bar chart, say, where you
+want to group or stack your data before you display it.*/
+var nestedData = d3.nest()
+                      .key(function (d) { return d.month.getMonth(); })
+                      .entries(data);
 
-//console.log(data);
+console.log(nestedData);
 
     });
 
