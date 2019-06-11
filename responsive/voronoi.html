@@ -19,10 +19,16 @@
 
 	</head>
 
-	<body>
+	<body onresize="callFunction()">
 		<script type="text/javascript">
 
-		console.log(window.innerWidth);
+		callFunction();
+		function callFunction() {
+		//console.log(window.innerWidth);
+			var svgtest = d3.select("body").select("svg");
+			if (!svgtest.empty()) {
+				svgtest.remove();
+			}
 
 
       var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
@@ -47,8 +53,9 @@
                   .attr("cy",function(d){ return d[1]; })
                   .attr("r","2.5");
 
-
+}
     </script>
   </body>
+
 
 </html>
