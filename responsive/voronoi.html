@@ -50,8 +50,14 @@
         .data(voronoi.polygons(vertices))
         .enter().append("path")
                   .attr("d",function(d){ return "M"+d.join("L")+"Z"; })
-									.on("mousemove", function() { this.style.fill = "red"})
-									.on("mouseout", function() { this.style.fill = "white"});
+									.on("mousemove", function(d) {
+										tooltip.style("opacity", "1")
+										.style("left", d3.event.pageX+"px")
+										.style("top", d3.event.pageY+"px");
+										//console.log(d3.event);
+										tooltip.html("Number of slides: "+d.length);
+									});
+									//.on("mouseout", function() { this.style.fill = "white"});
 
       svg.append("g").attr("class","fuel")
       .selectAll("circle")
