@@ -21,9 +21,10 @@
 	<!-- for a responsive page -->
 	<body onresize="callFunction()">
 		<script type="text/javascript">
+		// using D3 directly instead of calling it inside body tag. 
 		//d3.select(window).on("resize", callFunction);
-		//use the line above insted of writing the whole function with test.
-		
+
+
 		// this function needs to be called in the very beginning.
 		callFunction();
 		function callFunction() {
