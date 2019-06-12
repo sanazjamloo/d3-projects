@@ -29,6 +29,8 @@
 		callFunction();
 		function callFunction() {
 		//console.log(window.innerWidth);
+		//adding tooltip
+			var tooltip = d3.select("body").append("div").style("opacity", "0").style("position", "absolute");
 			var svgtest = d3.select("body").select("svg");
 			if (!svgtest.empty()) {
 				svgtest.remove();
