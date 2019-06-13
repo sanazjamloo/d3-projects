@@ -44,8 +44,14 @@
 
       var voronoi = d3.voronoi().size([width,height]);
       var svg = d3.select("body").append("svg").attr("width","100%").attr("height","100%");
+			var chartGroup = svg.append("g");
 
-      svg.append("g").attr("class","polygons")
+			//adding zoom function 
+			chartGroup.call(d3.zoom().on("zoom", function(){
+			chartGroup.attr("transform", d3.event.transform);
+		}));
+
+      chartGroup.append("g").attr("class","polygons")
       .selectAll("path")
         .data(voronoi.polygons(vertices))
         .enter().append("path")
@@ -59,7 +65,7 @@
 									});
 									//.on("mouseout", function() { this.style.fill = "white"});
 
-      svg.append("g").attr("class","fuel")
+      chartGroup.append("g").attr("class","fuel")
       .selectAll("circle")
         .data(vertices)
         .enter().append("circle")
