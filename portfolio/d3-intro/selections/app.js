@@ -1,5 +1,6 @@
 //chaining the methods
-const body = d3.select('body').append('p')
+const body = d3.select('body')
+const p = body.append('p')
 
 
 
