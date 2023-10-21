@@ -10,3 +10,6 @@ const el = d3.select('ul')
     .text('Hello!')
 //join method generates new elements, it doesnt add attributes or insert content into the existing elements.
 console.log(el)
+
+//enter and exist selections are the selections that we use whenever the ratio of the data and array list is not 1:1, meaning that we will need to either add data to the array or remove data from it using join() method. 
+//in short, the join method, intelligently handles both situations. 
