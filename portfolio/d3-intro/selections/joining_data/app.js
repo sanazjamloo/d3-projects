@@ -6,7 +6,12 @@ const data = [10, 20, 30, 40, 50]
 const el = d3.select('ul')
     .selectAll('li')
     .data(data)
-    .join('li')
+    .join (
+        enter => {
+            return enter.append('li')
+                .style('color', 'purple')
+        }
+    )
     // .text(function(d) {
     //     return d
     // })
@@ -16,3 +21,4 @@ console.log(el)
 
 //enter and exist selections are the selections that we use whenever the ratio of the data and array list is not 1:1, meaning that we will need to either add data to the array or remove data from it using join() method. 
 //in short, the join method, intelligently handles both situations. 
+//to modify the join method's behavior, we use enter, update, and exist selections as functions inside the join method.
