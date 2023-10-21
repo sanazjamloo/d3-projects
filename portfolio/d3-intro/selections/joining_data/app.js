@@ -10,7 +10,10 @@ const el = d3.select('ul')
         enter => {
             return enter.append('li')
                 .style('color', 'purple')
-        }
+        },
+        update => update.style('color', 'green'),
+        exit => exit.remove()
+
     )
     // .text(function(d) {
     //     return d
