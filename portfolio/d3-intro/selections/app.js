@@ -9,8 +9,4 @@ const el = d3.select('body')
     .text('Hello World!')
     .style('color', 'blue')
 
-
-
-
-
 console.log(el)
