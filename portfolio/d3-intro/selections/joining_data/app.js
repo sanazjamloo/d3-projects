@@ -7,7 +7,10 @@ const el = d3.select('ul')
     .selectAll('li')
     .data(data)
     .join('li')
-    .text('Hello!')
+    // .text(function(d) {
+    //     return d
+    // })
+    .text(d => d) //using es6 syntax to display the data associate with array items. 
 //join method generates new elements, it doesnt add attributes or insert content into the existing elements.
 console.log(el)
 
